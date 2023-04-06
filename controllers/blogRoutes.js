@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { blog, User } = require('../models');
+const { Blog, User } = require('../models');
 
 
 const withAuth = require('../utils/auth');
 
 router.get('/blog/:id', async (req, res) => {
   try {
-    const blogData = await blog.findByPk(req.params.id, {
+    const blogData = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -29,13 +29,13 @@ router.get('/blog/:id', async (req, res) => {
 router.get('/blog/new', withAuth, async (req, res) => {
   try {
     res.status(200)
-    res.render('newPostForm')
+    res.render('blogPostForm')
   } catch (err) {
     res.status(500).json(err)
   }
 });
 
-router.post('/blog', withAuth, async (req, res) => {
+router.post('/blogs', withAuth, async (req, res) => {
   try {
     const newBlog = await blog.create({
       ...req.body,
@@ -50,9 +50,9 @@ router.post('/blog', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/blog', withAuth, async (req, res) => {
+router.delete('/blogs', withAuth, async (req, res) => {
   try {
-    const deletedBlog = await blog.destroy({
+    const deletedBlog = await Blog.destroy({
       where: {
         id: req.body.id,
         user_id: req.session.user_id,
@@ -69,6 +69,8 @@ router.delete('/blog', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 
 
 module.exports = router;

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tech Blog</title>
+  <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #F5F4F4;
+    }
+    header {
+      background-color: #CAE4DB;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav a {
+      color: #00303F;
+      margin-right: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #CDAC81;
+    }
+    .no-button {
+      background: none;
+      border: none;
+      color: #00303F;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .no-button:hover {
+      color: #CDAC81;
+    }
+    .tech-blog {
+      color: #00303F;
+    }
+    .jumbotron {
+      background-color: #00303F;
+      color: #F5F4F4;
+    }
+    main.container {
+      background-color: #F5F4F4;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    .post {
+      background-color: rgb(245, 244, 244);
+      border: 1px solid rgb(202, 228, 219);
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    footer {
+      background-color: #CDAC81;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <header>
+      <h1>
+        <a class="tech-blog" href="/">Tech Blog!</a>
+      </h1>
+      <nav>
+        <!-- Conditionally render login, signup, or logout links -->
+        {{#if logged_in}}
+        <button class="no-button" id="logout">logout</button>
+        <button onclick="window.location.href='/blog/new'" class="no-button">New Post</button>
+        {{else}}
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+        {{/if}}
+      </nav>
+  
+    </header>
+   
+    <main class="container">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+
+  </div>
+
+  <!-- Bootstrap JavaScript and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+
+  <script src="/public/js/login.js"></script>
+  <script src="/public/js/signup.js"></script>
+</body>
+</html>

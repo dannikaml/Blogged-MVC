@@ -13,7 +13,6 @@ router.get('/', async (req, res) => {
       ],
     });
 
-
     const blogDataClear = BlogData.map((Blog) => Blog.get({ plain: true }));
     res.render('homepage', {
       blogDataClear,
@@ -32,7 +31,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
       },
     });
 
-
     const blogDataClear = BlogData.map((Blog) => Blog.get({ plain: true }));
     res.render('dashboard', {
       blogDataClear,
@@ -41,7 +39,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-})
+});
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -52,5 +50,16 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+router.get('/signup', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/dashboard');
+    return;
+  }
+  
+  res.render('signup');
+});
+
+
 
 module.exports = router;
