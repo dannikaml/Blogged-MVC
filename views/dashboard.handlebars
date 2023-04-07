@@ -3,6 +3,11 @@
     <h2 class="post-title">{{this.title}}</h2>
     <p class="post-content">{{this.contents}}</p>
     <p>Created by: {{this.user.name}}</p>
+    <form class="delete-form" method="POST" action="/blogs/{{this.id}}?_method=DELETE">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
   </div>
 {{/each}}
 
+<script src="/js/delete.js"></script>
+</body>

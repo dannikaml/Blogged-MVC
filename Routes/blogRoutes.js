@@ -49,11 +49,11 @@ router.post('/blogs', withAuth, async (req, res) => {
 });
 
 
-router.delete('/blogs', withAuth, async (req, res) => {
+router.delete('/blogs/:id', withAuth, async (req, res) => {
   try {
     const deletedBlog = await Blog.destroy({
       where: {
-        id: req.body.id,
+        id: req.params.id,
         user_id: req.session.user_id,
       },
     });
@@ -68,5 +68,6 @@ router.delete('/blogs', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 module.exports = router;
