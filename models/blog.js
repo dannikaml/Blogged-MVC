@@ -22,6 +22,14 @@ Blog.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+    },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -33,9 +41,10 @@ Blog.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Blog',
+    modelName: 'blog',
   }
 );
+
 
 Blog.belongsTo(User, {
   foreignKey: 'user_id',

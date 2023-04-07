@@ -5,13 +5,13 @@
   "main": "server.js",
   "scripts": {
     "test": "n/a",
-    "start": "node server.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dannikaml/Blogged-MVC.git"
   },
-  "author": "dannika long",
+  "author": "Dannika Long",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dannikaml/Blogged-MVC/issues"
@@ -25,7 +25,9 @@
     "express-handlebars": "^7.0.4",
     "express-session": "^1.17.3",
     "mysql2": "^3.2.0",
-    "nodemon": "^2.0.22",
     "sequelize": "^6.30.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }

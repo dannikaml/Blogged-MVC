@@ -29,6 +29,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
     });
 
     const blogDataClear = BlogData.map((Blog) => Blog.get({ plain: true }));
@@ -41,6 +47,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -52,14 +59,14 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/dashboard');
     return;
   }
-  
+
   res.render('signup');
 });
-
 
 
 module.exports = router;

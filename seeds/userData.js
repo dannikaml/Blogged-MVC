@@ -1,5 +1,5 @@
 module.exports = [
-   {
+  {
     name: "John Doe",
     email: "john.doe@example.com",
     password: "password1"
@@ -14,4 +14,5 @@ module.exports = [
     email: "bob.johnson@example.com",
     password: "password3"
   }
-]
+];
+

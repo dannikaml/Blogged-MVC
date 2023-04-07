@@ -1,10 +1,8 @@
 const router = require('express').Router();
 const { Blog, User } = require('../models');
-
-
 const withAuth = require('../utils/auth');
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/blogs/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
@@ -37,18 +35,19 @@ router.get('/blog/new', withAuth, async (req, res) => {
 
 router.post('/blogs', withAuth, async (req, res) => {
   try {
-    const newBlog = await blog.create({
+    const newBlog = await Blog.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    // Redirect to user's blog post dashboard upon successful submission
+    // Redirect to user's job dashboard upon successful submission
     res.redirect('/dashboard');
 
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
 
 router.delete('/blogs', withAuth, async (req, res) => {
   try {
@@ -69,8 +68,5 @@ router.delete('/blogs', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-
 
 module.exports = router;
