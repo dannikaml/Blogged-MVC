@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -47,6 +47,18 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+router.post('/blog/:id/comment', withAuth, async (req, res) => {
+  try {
+    const commentData = await Comment.create({
+      comment_text: req.body.comment_text,
+      blog_id: req.params.id,
+      user_id: req.session.user_id,
+    });
+    res.status(200).json(commentData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -67,6 +79,5 @@ router.get('/signup', (req, res) => {
 
   res.render('signup');
 });
-
 
 module.exports = router;

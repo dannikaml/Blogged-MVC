@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <style>
     body {
-      background-color: #F5F4F4;
+      background-color: #00303F;
     }
     header {
       background-color: #CAE4DB;
@@ -41,6 +41,10 @@
     .tech-blog {
       color: #00303F;
     }
+    h3 {
+      font-size: small;
+      font: bold;
+    }
     .jumbotron {
       background-color: #00303F;
       color: #F5F4F4;
@@ -54,10 +58,47 @@
     }
     .post {
       background-color: rgb(245, 244, 244);
-      border: 1px solid rgb(202, 228, 219);
+      border: 1px solid #00303F;
       padding: 10px;
       margin-bottom: 10px;
     }
+    .form-control {
+      height: 50px; /* set the height to your desired value */
+      resize: vertical; /* allow vertical resizing */
+    }
+    .comments {
+  background-color: #F5F4F4;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.comment {
+  background-color: #FFFFFF;
+  border: 1px solid #00303F;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.comment h5 {
+  font-size: small;
+  font-weight: bold;
+}
+.comment p {
+  margin-bottom: 0;
+}
+.comment span {
+  font-size: small;
+  font-style: italic;
+}
+
+    .btn-prime {
+      background-color: #CDAC81;
+      border-color: #CDAC81;
+    }    
+    .btn-prime:hover {
+      color: rgb(202, 228, 219);
+    }
+
     footer {
       background-color: #CDAC81;
       height: 100px;
@@ -73,21 +114,22 @@
       <nav>
         <!-- Conditionally render login, signup, or logout links -->
         {{#if logged_in}}
-        <button class="no-button" id="logout">logout</button>
+        <button class="no-button" id="logout">Logout</button>
         <button onclick="window.location.href='/blog/new'" class="no-button">New Post</button>
+        <a href="/dashboard" class="no-button">Dashboard</a>
         {{else}}
         <a href="/login">Login</a>
         <a href="/signup">Signup</a>
         {{/if}}
       </nav>
-  
     </header>
    
     <main class="container">
       <!-- Render the sub layout -->
       {{{ body }}}
+      <!-- Render the comments -->
+      {{{ comments }}}
     </main>
-
   </div>
 
   <!-- Bootstrap JavaScript and jQuery -->
