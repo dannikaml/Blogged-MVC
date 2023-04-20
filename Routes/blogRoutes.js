@@ -80,7 +80,7 @@ router.delete('/blogs/:id', withAuth, async (req, res) => {
   }
 });
 
-router.post('/blog/:id/comments', withAuth, async (req, res) => {
+router.post('/blogs/:id/comments', withAuth, async (req, res) => {
   try {
     const { comment_text } = req.body;
 
@@ -88,18 +88,19 @@ router.post('/blog/:id/comments', withAuth, async (req, res) => {
       return res.status(400).json({ error: 'Comment text is required' });
     }
 
-    const { id: user_id } = req.user;
-    const { id: blog_id } = req.params;
-
-    const comment = await Comment.create({ comment_text, user_id, blog_id });
+    const user_id  = 3;
+    const blog_id = req.params.id;
+    console.log(blog_id);
+    Comment.create({ comment_text, user_id, blog_id });
 
     // Redirect the user back to the blog post page with the updated comments
-    res.redirect(`/blog`);
+    res.redirect(`/dashboard`);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Server error' });
   }
 });
+
 
 
 

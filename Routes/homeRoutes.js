@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        
       ],
     });
 
@@ -34,6 +35,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        Comment
       ],
     });
 
@@ -47,18 +49,18 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-router.post('/blog/:id/comment', withAuth, async (req, res) => {
-  try {
-    const commentData = await Comment.create({
-      comment_text: req.body.comment_text,
-      blog_id: req.params.id,
-      user_id: req.session.user_id,
-    });
-    res.status(200).json(commentData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.post('/blog/:id/comment', withAuth, async (req, res) => {
+//   try {
+//     const commentData = await Comment.create({
+//       comment_text: req.body.comment_text,
+//       blog_id: req.params.id,
+//       user_id: req.session.user_id,
+//     });
+//     res.status(200).json(commentData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
