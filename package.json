@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/dannikaml/Blogged-MVC#readme",
   "dependencies": {
-    "bcrypt": "^4.0.1",
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
