@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "n/a",
-    "start": "node server.js" 
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,4 @@
     "mysql2": "^3.2.0",
     "sequelize": "^6.30.0"
   }
-
 }
