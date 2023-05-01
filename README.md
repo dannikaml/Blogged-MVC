@@ -1,5 +1,29 @@
 # Blogged-MVC
 
+## Description
+Blogged-MVC is a CMS-style blog site developed with Node.js and MVC architecture. The project aims to provide a platform for developers to share their thoughts, opinions, and articles related to technology. The application includes a homepage with existing blog posts, navigation links for the homepage and the dashboard, and options to sign up or sign in. 
+
+Blogged-MVC provides a user-friendly interface with simple navigation and a clean design. It's great for developers who want to share their knowledge and expertise on various technology-related topics.
+
+## Usage
+***
+To use this app, you'll need to have Node.js installed on your computer. Once you have those installed, you can follow these steps:
+
+
+Install the necessary dependencies, please use:
+```
+npm install
+```
+
+The application will be invoked by using the following command:
+```
+node server.js
+```
+Open your web browser and go to:
+```
+http://localhost:3001
+```
+
 ## User Story
 ```
 AS A developer who writes about tech
@@ -42,3 +66,26 @@ THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
 THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
 ```
+
+![screenshot]()
+
+### Sources:
+
+ExpressJs:
+- https://expressjs.com/en/guide/routing.html
+- https://expressjs.com/en/starter/static-files.html
+
+stackOverflow:
+- https://stackoverflow.com/questions/23259168/what-are-express-json-and-express-urlencoded
+- https://stackoverflow.com/questions/292965/what-is-a-uuid 
+
+geeksforgeeks:
+- https://www.geeksforgeeks.org/node-js-fs-readfile-method/#
+
+mdn docs:
+- https://developer.mozilla.org/en-US/docs/Glossary/UTF-8
+
+ChatGPT, 
+Instrcutor: Bassie B., 
+TA: Ethan D.,
+Tutor: Jacob C. 
