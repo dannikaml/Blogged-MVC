@@ -11,11 +11,13 @@
       </div>
       <button type="submit" class="btn-prime">Submit</button>
     </form>
-
-    {{#each blog.comments as |comment|}}
+ 
+ 
+     <h3>Comments:</h3>
+      {{#each comments as |comment| }}
       <div class="comment">
         <p>{{comment.comment_text}}</p>
-        <p>Posted by: {{comment.user.name}} on {{dateFormat comment.date_created "MMMM DD, YYYY h:mm A"}}</p>
+        <p>Posted by: {{this.user.name}}</p>
       </div>
     {{/each}}
   </div>
