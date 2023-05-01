@@ -1,7 +1,7 @@
 # Blogged-MVC
 
 ## Description
-Blogged-MVC is a CMS-style blog site developed with Node.js and MVC architecture. The project aims to provide a platform for developers to share their thoughts, opinions, and articles related to technology. The application includes a homepage with existing blog posts, navigation links for the homepage and the dashboard, and options to sign up or sign in. 
+Blogged-MVC is a blog site developed with Node.js and MVC architecture. The project aims to provide a platform for developers to share their thoughts, opinions, and articles related to technology. The application includes a homepage with existing blog posts, navigation links for the homepage and the dashboard, and options to sign up or login. 
 
 Blogged-MVC provides a user-friendly interface with simple navigation and a clean design. It's great for developers who want to share their knowledge and expertise on various technology-related topics.
 
